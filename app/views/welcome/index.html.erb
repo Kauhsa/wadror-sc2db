@@ -1,0 +1,13 @@
+<h2><%= link_to 'Players', players_path %> - <%= link_to 'Add new', new_player_path %></h2>
+<ul>
+  <% Player.all.each do |player| %>
+    <li><%= link_to player.name, player %></li>
+  <% end %>
+</ul>
+
+<h2><%= link_to 'Teams', teams_path %> - <%= link_to 'Add new', new_team_path %></h2>
+<ul>
+  <% Team.all.each do |player| %>
+    <li><%= link_to player.name, player %></li>
+  <% end %>
+</ul>
