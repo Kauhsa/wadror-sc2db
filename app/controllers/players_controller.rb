@@ -1,4 +1,6 @@
 class PlayersController < ApplicationController
+  before_filter :authenticate, :only => [:new, :create, :destroy, :edit, :update]
+
   # GET /players
   # GET /players.json
   def index
@@ -25,6 +27,8 @@ class PlayersController < ApplicationController
   # GET /players/new.json
   def new
     @player = Player.new
+    @races = Race.all
+    @teams = Team.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,6 +38,8 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+    @races = Race.all
+    @teams = Team.all
     @player = Player.find(params[:id])
   end
 

@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :race %><br />
-    <%= f.select :race_id, Race.all.map {|x| [x, x.id]} %>
+    <%= f.select :race_id, options_from_collection_for_select(@races, :id, :to_s) %>
   </div>
   <div class="field">
     <%= f.label :team %><br />
-    <%= f.select :team_id, Team.all.map {|x| [x, x.id]} %>
+    <%= f.select :team_id, options_from_collection_for_select(@teams, :id, :to_s) %>
   </div>
   <div class="actions">
     <%= f.submit %>
